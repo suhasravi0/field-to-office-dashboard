@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field-to-Office Project Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Field-to-Office Dashboard</h1>
+            <p>Streamlined RFI & Submittal Tracking</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="module">
+            <h2>Draft New RFI</h2>
+            <form id="rfi-form">
+                <div class="form-group">
+                    <label for="rfi-subject">Subject / Issue</label>
+                    <input type="text" id="rfi-subject" placeholder="e.g., HVAC Duct Conflict at Grid B-4" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="rfi-location">Location</label>
+                        <input type="text" id="rfi-location" placeholder="e.g., Level 2" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rfi-drawing">Drawing Ref.</label>
+                        <input type="text" id="rfi-drawing" placeholder="e.g., M-201" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="rfi-solution">Proposed Solution / Question</label>
+                    <textarea id="rfi-solution" rows="3" placeholder="Provide field recommendation..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Generate & Save RFI</button>
+            </form>
+        </section>
+
+        <section class="module">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2>Active RFI Log</h2>
+                <button onclick="exportToCSV()" class="btn-secondary">Export to CSV</button>
+            </div>
+            <div class="table-container">
+                <table id="rfi-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Subject</th>
+                            <th>Location</th>
+                            <th>Drawing</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rfi-log-body">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Developed by Suhas Ravi, CMIT, LEED GA</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
